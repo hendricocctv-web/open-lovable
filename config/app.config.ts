@@ -10,7 +10,7 @@ export const appConfig = {
       "claude",
       "gemini"
     ],
-
+    
     modelDisplayNames: {
       "gpt-4o": "GPT-4o",
       "claude": "Claude",
