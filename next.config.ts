@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import path from "path";
 
 const nextConfig: NextConfig = {
   images: {
@@ -8,6 +9,12 @@ const nextConfig: NextConfig = {
         hostname: 'www.google.com',
       },
     ],
+  },
+  webpack: (config) => {
+    // Memaksa Webpack mengenali alias folder kustom Anda
+    config.resolve.alias['@config'] = path.resolve(process.cwd(), 'config');
+    config.resolve.alias['@components'] = path.resolve(process.cwd(), 'components');
+    return config;
   },
 };
 
