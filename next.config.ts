@@ -11,9 +11,11 @@ const nextConfig: NextConfig = {
     ],
   },
   webpack: (config) => {
-    // Memaksa Webpack mengenali alias folder kustom Anda
-    config.resolve.alias['@config'] = path.resolve(process.cwd(), 'config');
-    config.resolve.alias['@components'] = path.resolve(process.cwd(), 'components');
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      "@config": path.resolve(process.cwd(), "config"),
+      "@components": path.resolve(process.cwd(), "components"),
+    };
     return config;
   },
 };
